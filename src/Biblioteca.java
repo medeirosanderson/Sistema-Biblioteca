@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Biblioteca {
@@ -42,10 +43,25 @@ public class Biblioteca {
 
     public void livrosCategoria(String categoria){
         for (Livro livro : livros) {
-            if(livro.getCategoria().equals(categoria)){
+            if(livro.getCategoria().equalsIgnoreCase(categoria)){
                 System.out.println(livro);
             }
         }
+    }
+
+    public void livrosTitulo(){
+        //Criei esse metodo para apresentar os livros por ordem alfabetica
+        livros.stream()
+        .map(Livro::getTitulo)
+        .sorted()
+        .forEach(System.out::println);
+    }
+
+    public void livrosPagina() {
+        //Criei esse metodo para ordenar os livros utilizando as paginas como comparador
+        livros.stream()
+        .sorted(Comparator.comparingInt(Livro::getPaginas))
+        .forEach(System.out::println);
     }
 }
 

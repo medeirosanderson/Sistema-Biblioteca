@@ -68,7 +68,6 @@ public class Livro {
         return "\n Livro: " + titulo + "\n Autor: " + autor + "\n Categoria: " + categoria + "\n Paginas: " + paginas
                 + "\n Disponivel: " + disponivel;
     }
-
-
+    
 
 }
