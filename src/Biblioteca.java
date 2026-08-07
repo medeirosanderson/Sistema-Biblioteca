@@ -31,6 +31,22 @@ public class Biblioteca {
     public void adicionarLivro(Livro livro){
         livros.add(livro);
     }
+
+    public void livrosDisponiveis() {
+        for (Livro livro : livros) {
+            if(livro.isDisponivel()){
+                System.out.println(livro);
+            }
+        }
+    }
+
+    public void livrosCategoria(String categoria){
+        for (Livro livro : livros) {
+            if(livro.getCategoria().equals(categoria)){
+                System.out.println(livro);
+            }
+        }
+    }
 }
 
 
