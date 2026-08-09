@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class SistemaBiblioteca {
     public static void main(String[] args) throws Exception {
         Biblioteca biblioteca = new Biblioteca();
@@ -10,40 +12,69 @@ public class SistemaBiblioteca {
     biblioteca.adicionarLivro(new Livro("Diario de um Banana", "Jeff Kinnemy", "Ficção", 115));
     biblioteca.adicionarLivro(new Livro("Diario de Aventuras da Ellie", "Ruth M Barshaw", "Ficção", 130));
     
+    Scanner scanner = new Scanner(System.in);
     
-    biblioteca.livrosDisponiveis();
-    
-    System.out.println("------------------------------------");
-    
-    biblioteca.emprestarLivro("Clean Code");
-    
-    System.out.println("------------------------------------");
+        int opcao = -1;
+        
+        while (opcao != 0)  {
+            System.out.println("==================================================");
+            System.out.println("\t\tSistema Biblioteca");
+            System.out.println("==================================================");
+            System.out.println("[1] - Livros disponiveis");
+            System.out.println("[2] - Pegar emprestado");
+            System.out.println("[3] - Devolver Livro");
+            System.out.println("[0] - Sair");
+            System.out.println("Digite sua opção: ");
+            
+            if (scanner.hasNextInt()) {
+            opcao = scanner.nextInt();
+                scanner.nextLine(); // consome o Enter
+            } else {
+                System.out.println("Digite apenas um número!");
+                scanner.nextLine(); // descarta entrada inválida
+                continue;
+            }
 
-    biblioteca.livrosCategoria("ficção");
+            switch (opcao) {
+                case 1:
+                    System.out.println("==================================================");
+                    System.out.println("\t\tLivros Disponiveis");
+                    System.out.println("==================================================");
+                    biblioteca.livrosDisponiveis();
+                    break;
+                case 2:
+                    String nomeLivro;
+                    System.out.println("==================================================");
+                    System.out.println("\t\tEmprestimo");
+                    System.out.println("==================================================");
+                    System.out.println("Digite o titulo do livro: ");
 
-    System.out.println("------------------------------------");
-    System.out.println("\t Livros em Ordem Alfabetica \n");
-    biblioteca.livrosTitulo();
+                    nomeLivro = scanner.nextLine();
 
-    System.out.println("------------------------------------");
-    System.out.println("\t Livros Ordenados pelo numero de Paginas \n");
-    biblioteca.livrosPagina();
+                    biblioteca.emprestarLivro(nomeLivro);
+                    break;
 
-    System.out.println("------------------------------------");
-    System.out.println("\t Livros Ordenados pela Categoria \n");
-    biblioteca.agruparCategorias();
+                case 3:
 
-    System.out.println("------------------------------------");
-    System.out.println("\t Livro com a maior quantidade de Paginas \n");
-    biblioteca.maiorLivro();
+                    System.out.println("==================================================");
+                    System.out.println("\t\tDevolver Livro");
+                    System.out.println("==================================================");
+                    System.out.println("Digite o titulo do livro: ");
 
-    System.out.println("------------------------------------");
-    System.out.println("\t Media de paginas dos livros da Biblioteca \n");
-    biblioteca.mediaPaginas();
+                    nomeLivro = scanner.nextLine();
 
-    System.out.println("------------------------------------");
-    System.out.println("\t Categoria e Quantidade de livros \n");
-    biblioteca.quantidadeLivrosCategoria();
+                    biblioteca.devolverLivro(nomeLivro);
+                    break;
 
-    }
+
+                case 0:
+                    System.out.println("Você saiu do sistema!");
+                    break;
+                default:
+                    break;
+            }
+
+            } 
+        }
 }
+
