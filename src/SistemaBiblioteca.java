@@ -33,7 +33,17 @@ public class SistemaBiblioteca {
     System.out.println("\t Livros Ordenados pela Categoria \n");
     biblioteca.agruparCategorias();
 
+    System.out.println("------------------------------------");
+    System.out.println("\t Livro com a maior quantidade de Paginas \n");
+    biblioteca.maiorLivro();
 
+    System.out.println("------------------------------------");
+    System.out.println("\t Media de paginas dos livros da Biblioteca \n");
+    biblioteca.mediaPaginas();
+
+    System.out.println("------------------------------------");
+    System.out.println("\t Categoria e Quantidade de livros \n");
+    biblioteca.quantidadeLivrosCategoria();
 
     }
 }

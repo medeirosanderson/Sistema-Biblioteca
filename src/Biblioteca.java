@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 public class Biblioteca {
@@ -75,10 +77,40 @@ public class Biblioteca {
         livrosCategoria.forEach((categoria, livros)->{
             System.out.println("\nCategoria: " + categoria);
             livros.forEach(System.out::println);
+            
         });
         //Aqui eu criei um forEach pra imprimir esses livros por categoria, utilizando a
         //Chave que defini acima "Categoria" e a Lista que eu vou percorrer "Livros"
     }
+    
+    public void maiorLivro(){
+        Optional<Livro> maxPaginas = livros.stream()
+        .max(Comparator.comparingInt(Livro::getPaginas));
+
+        maxPaginas.ifPresent(System.out::println);
+    }
+
+    public void mediaPaginas(){
+        OptionalDouble media = livros.stream()
+        .mapToInt(Livro::getPaginas)
+        .average();
+
+        media.ifPresent(i -> {
+            System.out.printf("%.1f\n", i);
+        });
+    }
+
+    public void quantidadeLivrosCategoria (){
+            Map<String, List<Livro>> quantidadeCategoria = livros.stream()
+            .collect(Collectors.groupingBy(Livro::getCategoria));
+
+            quantidadeCategoria.forEach((categoria , livros) -> {
+                System.out.println("\nCategoria: " + categoria + "\nQuantidade: " + livros.size() + "\n");
+            });
+
+    }
+
+
 
 
 }

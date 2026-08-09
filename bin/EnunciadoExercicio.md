@@ -2,4 +2,7 @@
 2 - Mostrar todos os livros de uma determinada categoria. [x]
 3 - Mostrar apenas os títulos. [x]
 4 - Ordenar os livros pelo número de páginas. [x]
-5 - Agrupar por categoria (groupingBy).
+5 - Agrupar por categoria (groupingBy). [x]
+6 - Descobrir qual livro possui mais páginas. [x]
+7 - Descobrir a média de páginas. [x]
+8 - Contar quantos livros existem em cada categoria. 
