@@ -5,6 +5,7 @@ public class Livro {
     private String categoria;
     private int paginas;
     private boolean disponivel = true;
+    public Object getCategoria;
 
     
     public Livro(String titulo, String autor, String categoria, int paginas) {

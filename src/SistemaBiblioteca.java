@@ -27,7 +27,13 @@ public class SistemaBiblioteca {
 
     System.out.println("------------------------------------");
     System.out.println("\t Livros Ordenados pelo numero de Paginas \n");
-    biblioteca.livrosPagina();;
+    biblioteca.livrosPagina();
+
+    System.out.println("------------------------------------");
+    System.out.println("\t Livros Ordenados pela Categoria \n");
+    biblioteca.agruparCategorias();
+
+
 
     }
 }
