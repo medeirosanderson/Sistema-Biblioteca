@@ -50,6 +50,26 @@ public class Biblioteca {
             System.out.println(listaLivro);
         }
     }
+    
+    public void agruparCategorias() {
+        Map<String, List<Livro>> livrosCategoria = livros.stream()
+        .collect(Collectors.groupingBy(Livro::getCategoria));
+        //Aqui eu criei um MAP com todos os livros da minha List e separei por Categoria 
+        //utilizando o GroupingBy
+
+        livrosCategoria.forEach((categoria, livros)->{
+            System.out.println("\nCategoria: " + categoria);
+            livros.forEach(System.out::println);
+            
+        });
+        //Aqui eu criei um forEach pra imprimir esses livros por categoria, utilizando a
+        //Chave que defini acima "Categoria" e a Lista que eu vou percorrer "Livros"
+    }
+
+
+
+    //OS METODOS ABAIXO FORAM IMPLEMENTADOS PARA RESOLVER O EXERCICIO DO ARQUIVO "EninciadoExercicio.md"
+
 
     public void livrosCategoria(String categoria){
         for (Livro livroCategoria : livros) {
@@ -73,21 +93,7 @@ public class Biblioteca {
         .sorted(Comparator.comparingInt(Livro::getPaginas))
         .forEach(System.out::println);
     }
-
-    public void agruparCategorias() {
-        Map<String, List<Livro>> livrosCategoria = livros.stream()
-        .collect(Collectors.groupingBy(Livro::getCategoria));
-        //Aqui eu criei um MAP com todos os livros da minha List e separei por Categoria 
-        //utilizando o GroupingBy
-
-        livrosCategoria.forEach((categoria, livros)->{
-            System.out.println("\nCategoria: " + categoria);
-            livros.forEach(System.out::println);
-            
-        });
-        //Aqui eu criei um forEach pra imprimir esses livros por categoria, utilizando a
-        //Chave que defini acima "Categoria" e a Lista que eu vou percorrer "Livros"
-    }
+    
     
     public void maiorLivro(){
         Optional<Livro> maxPaginas = livros.stream()
