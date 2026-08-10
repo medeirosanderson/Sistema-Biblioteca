@@ -38,17 +38,23 @@ public class Biblioteca {
     }
 
     public void livrosDisponiveis() {
-        for (Livro livro : livros) {
-            if(livro.isDisponivel()){
-                System.out.println(livro);
+        for (Livro livroDisponivel : livros) {
+            if(livroDisponivel.isDisponivel()){
+                System.out.println(livroDisponivel);
             }
         }
     }
 
+    public void listarLivros(){
+        for (Livro listaLivro : livros) {
+            System.out.println(listaLivro);
+        }
+    }
+
     public void livrosCategoria(String categoria){
-        for (Livro livro : livros) {
-            if(livro.getCategoria().equalsIgnoreCase(categoria)){
-                System.out.println(livro);
+        for (Livro livroCategoria : livros) {
+            if(livroCategoria.getCategoria().equalsIgnoreCase(categoria)){
+                System.out.println(livroCategoria);
             }
         }
     }

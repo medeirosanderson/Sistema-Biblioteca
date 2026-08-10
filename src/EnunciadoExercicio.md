@@ -5,4 +5,4 @@
 5 - Agrupar por categoria (groupingBy). [x]
 6 - Descobrir qual livro possui mais páginas. [x]
 7 - Descobrir a média de páginas. [x]
-8 - Contar quantos livros existem em cada categoria. 
+8 - Contar quantos livros existem em cada categoria. [x]
